@@ -125,6 +125,198 @@ export function Skills() {
           </div>
         </motion.div>
 
+        {/* Technology Stack */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold mb-4">Technology Stack</h2>
+          <p className="text-lg mb-8">Technologies I Work With:</p>
+
+          <div className="space-y-12">
+            {/* MERN Stack */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">MERN Stack</h3>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                {[
+                  {
+                    name: "MongoDB",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+                  },
+                  {
+                    name: "Express.js",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+                  },
+                  {
+                    name: "React.js",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                  },
+                  {
+                    name: "Node.js",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+                  },
+                  {
+                    name: "Next.js",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+                  },
+                ].map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex flex-col items-center gap-3 p-4 border-2 border-foreground/10 rounded-lg hover:border-foreground/30 transition-colors"
+                  >
+                    <img
+                      src={tech.logo}
+                      alt={tech.name}
+                      className="w-16 h-16 object-contain"
+                    />
+                    <span className="text-sm font-medium text-center">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Frontend */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">Frontend</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  {
+                    name: "JavaScript",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                  },
+                  {
+                    name: "HTML5",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+                  },
+                  {
+                    name: "CSS3",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+                  },
+                  {
+                    name: "Tailwind CSS",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+                  },
+                ].map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex flex-col items-center gap-3 p-4 border-2 border-foreground/10 rounded-lg hover:border-foreground/30 transition-colors"
+                  >
+                    <img
+                      src={tech.logo}
+                      alt={tech.name}
+                      className="w-16 h-16 object-contain"
+                    />
+                    <span className="text-sm font-medium text-center">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Backend & Databases */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">
+                Backend & Databases
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  {
+                    name: "RESTful APIs",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+                  },
+                  {
+                    name: "Firebase",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+                  },
+                  {
+                    name: "MongoDB",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+                  },
+                  {
+                    name: "Mongoose",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg",
+                  },
+                ].map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex flex-col items-center gap-3 p-4 border-2 border-foreground/10 rounded-lg hover:border-foreground/30 transition-colors"
+                  >
+                    <img
+                      src={tech.logo}
+                      alt={tech.name}
+                      className="w-16 h-16 object-contain"
+                    />
+                    <span className="text-sm font-medium text-center">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tools & Version Control */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">
+                Tools & Version Control
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  {
+                    name: "Git",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+                  },
+                  {
+                    name: "GitHub",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+                  },
+                  {
+                    name: "Figma",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+                  },
+                  {
+                    name: "Axios",
+                    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/axios/axios-plain.svg",
+                  },
+                ].map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex flex-col items-center gap-3 p-4 border-2 border-foreground/10 rounded-lg hover:border-foreground/30 transition-colors"
+                  >
+                    <img
+                      src={tech.logo}
+                      alt={tech.name}
+                      className="w-16 h-16 object-contain"
+                    />
+                    <span className="text-sm font-medium text-center">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Language Skills */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

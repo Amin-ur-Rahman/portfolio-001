@@ -1,32 +1,26 @@
-import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const _geist = Geist({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Developer Portfolio - MERN Stack Specialist",
-  description: "Full-stack developer portfolio showcasing modern web applications",
+  description:
+    "Full-stack developer portfolio showcasing modern web applications",
   generator: "v0.app",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/logo-ar.jpg",
+        sizes: "32x32",
+        type: "image/jpeg",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/logo-ar.jpg",
   },
-}
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -36,5 +30,6 @@ export default function RootLayout({ children }) {
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
+

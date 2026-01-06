@@ -20,25 +20,22 @@ export function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm mb-2">Some Word About Me</p>
+          <p className="text-sm mb-2">A Few Words About Me</p>
           <h2 className="text-2xl md:text-4xl font-bold mb-12">Know Me More</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-6">
-                I'm Aminur Rahman, a MERN Stack Developer
+                I'm Aminur Rahman, an Aspiring MERN Stack Developer
               </h3>
               <p className="text-lg leading-relaxed mb-6">
-                I'm a passionate full-stack developer specializing in the MERN
-                stack, currently on a mission to master full-stack development
-                and AI automation. I build modern, scalable web applications
-                that blend functionality with beautiful user experiences. My
-                expertise spans React, Next.js, Node.js, MongoDB, Express.js,
-                Redux, Tailwind CSS, Framer Motion, and more. From interactive
-                UIs to secure payment systems with Stripe, I love turning
-                complex challenges into elegant solutions. I'm constantly
-                exploring emerging technologies, especially in AI automation, to
-                create smarter and more efficient applications.
+                I'm a frontend developer on my journey to becoming a full-stack
+                developer, specializing in the MERN stack. I build modern,
+                responsive web applications using React, Next.js, Tailwind CSS,
+                and Framer Motion. Currently expanding my skills in Node.js,
+                Express.js, and MongoDB to create complete end-to-end solutions.
+                I'm passionate about clean code, user experience, and exploring
+                AI automation to build smarter applications.
               </p>
 
               <div className="space-y-2 text-sm">
@@ -47,7 +44,7 @@ export function About() {
                   amin.rahman.dev@gmail.com
                 </p>
                 <p>
-                  <span className="font-bold">Date of Birth:</span> 24 December,
+                  <span className="font-bold">Date of Birth:</span> December 24,
                   2000
                 </p>
                 <p>
@@ -67,7 +64,7 @@ export function About() {
                 >
                   <span className="text-8xl font-bold">1+</span>
                   <p className="text-xl mt-4">
-                    Years in Javascript development and DSA
+                    Years of JavaScript Development & DSA
                   </p>
                 </motion.div>
               </div>
