@@ -1,8 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { TbFileCv } from "react-icons/tb";
 
 export function Hero() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleDownloadResume = () => {
+    // Create a temporary link element
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; // Make sure to place your resume.pdf in the public folder
+    link.download = "Aminur_Rahman_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
       id="top"
@@ -30,6 +48,7 @@ export function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection("projects")}
               className="px-8 py-3 bg-foreground text-background rounded-full font-medium"
             >
               View My Work
@@ -37,11 +56,22 @@ export function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection("contact")}
               className="px-8 py-3 border-2 border-foreground rounded-full font-medium"
             >
               Contact Me
             </motion.button>
           </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleDownloadResume}
+            className="my-5 flex items-center px-8 py-3 border-2 border-foreground rounded-full font-medium hover:bg-foreground hover:text-background transition-colors"
+          >
+            {" "}
+            Download
+            <TbFileCv size={24}></TbFileCv>
+          </motion.button>
         </motion.div>
 
         {/* Right Content - Profile Image */}

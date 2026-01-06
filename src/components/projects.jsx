@@ -1,32 +1,80 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { AiOutlineClose, AiOutlineGithub, AiOutlineLink } from "react-icons/ai";
 
 const projects = [
   {
-    title: "StyleDecor",
+    title: "Style Decor",
     subtitle: "Decoration and event managing Platform",
     tags: ["DESIGN", "FRONTEND", "BACKEND"],
     image: "/style-decor.png",
-    link: "https://style-decor-client-wheat.vercel.app/",
-  },
-  {
-    title: "GameVerse",
-    subtitle: "Gaming platform",
-    tags: ["DESIGN", "FRONTEND"],
-    image: "/game-verse.png",
-    link: "https://game-verse-react-app.vercel.app/",
+    liveLink: "https://style-decor-client-wheat.vercel.app/",
+    overview:
+      "This application provides real-time updates and transparency between service providers and clients. Users can browse their desired decoration or event designs, check the availability of specialized decorators, and book consultations before confirming an event. The platform helps reduce unintentional delays and confusion between clients and service providers.",
+    technologies:
+      "React.js, React Router, Framer Motion, TailwindCSS, Express.js, Node.js, MongoDB, REST APIs",
+    links: {
+      client: "https://github.com/yourusername/style-decor-client",
+      server: "https://github.com/yourusername/style-decor-server",
+      live: "https://style-decor-client-wheat.vercel.app/",
+    },
+    features: [
+      "Real-time workflow updates",
+      "Role-based dashboard and system control",
+      "User authentication, authorization, and security",
+      "Smooth and optimized UI/UX",
+      "Live system revenue, analytics, and earnings summary",
+    ],
   },
   {
     title: "Local Food Lovers",
     subtitle: "Local Food lovers network",
     tags: ["DESIGN", "FRONTEND", "BACKEND"],
     image: "/foodlovers.png",
-    link: "https://effortless-madeleine-66699e.netlify.app/",
+    liveLink: "https://effortless-madeleine-66699e.netlify.app/",
+    overview:
+      "A full-stack MERN application where people can share their reviews on local traditional foods. Users can add new reviews, manage and update their reviews, and keep track of others' reviews they like.",
+    technologies:
+      "React.js, React Router, Express.js, MongoDB, TanStack Query, Firebase",
+    links: {
+      client: "https://github.com/yourusername/local-food-lovers-client",
+      server: "https://github.com/yourusername/local-food-lovers-server",
+      live: "https://effortless-madeleine-66699e.netlify.app/",
+    },
+    features: [
+      "Managed client-side navigation and state effectively using React Router DOM",
+      "Built a highly responsive user interface using React.js and Tailwind CSS",
+      "Used Axios to communicate with the Node.js/Express server and MongoDB database",
+      "Enabled users to submit, update, and create a list of their favorite reviews through secure backend interactions",
+    ],
+  },
+  {
+    title: "Game Verse",
+    subtitle: "Gaming platform",
+    tags: ["DESIGN", "FRONTEND"],
+    image: "/game-verse.png",
+    liveLink: "https://game-verse-react-app.vercel.app/",
+    overview:
+      "A comprehensive discovery platform designed for gamers to navigate the rapidly evolving industry landscape. Game Verse features a robust, searchable catalog of released titles and a dedicated 'Upcoming Games' section, allowing users to track release dates and monitor highly anticipated games.",
+    technologies: "React.js, React Router DOM, Tailwind CSS, Firebase",
+    links: {
+      github: "https://github.com/yourusername/game-verse",
+      live: "https://game-verse-react-app.vercel.app/",
+    },
+    features: [
+      "Implemented full user lifecycle management with secure sign-up, login, and profile updates",
+      "Seamless Google Sign-In integration",
+      "Enabled users to explore and search a vast catalog of current and future titles",
+      "Maintained a dedicated 'Upcoming Games' section for tracking release dates",
+    ],
   },
 ];
 
 export function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <section
       id="projects"
@@ -51,11 +99,8 @@ export function Projects() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <motion.a
+              <motion.div
                 key={project.title}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -64,7 +109,7 @@ export function Projects() {
                   y: -10,
                   rotate: index === 1 ? 0 : index === 0 ? -2 : 2,
                 }}
-                className="border-2 border-foreground rounded-lg overflow-hidden block cursor-pointer"
+                className="border-2 border-foreground rounded-lg overflow-hidden"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <motion.img
@@ -78,7 +123,7 @@ export function Projects() {
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
                   <p className="text-sm mb-4">{project.subtitle}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -88,12 +133,161 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setSelectedProject(project)}
+                      className="flex-1 px-4 py-2 bg-foreground text-background rounded-lg text-sm font-medium"
+                    >
+                      View Details
+                    </motion.button>
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 border-2 border-foreground rounded-lg text-sm font-medium text-center flex items-center justify-center gap-2"
+                    >
+                      <AiOutlineLink className="text-lg" />
+                      Live Site
+                    </motion.a>
+                  </div>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-background border-2 border-foreground rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+            >
+              {/* Modal Header */}
+              <div className="sticky top-0 bg-background border-b-2 border-foreground p-6 flex justify-between items-start">
+                <div>
+                  <h3 className="text-3xl font-bold mb-2">
+                    {selectedProject.title}
+                  </h3>
+                  <p className="text-sm opacity-70">
+                    {selectedProject.subtitle}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="p-2 hover:bg-foreground/10 rounded-lg transition-colors"
+                >
+                  <AiOutlineClose className="text-2xl" />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6 space-y-6">
+                {/* Project Image */}
+                <div className="rounded-lg overflow-hidden border-2 border-foreground">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+
+                {/* Overview */}
+                <div>
+                  <h4 className="text-xl font-bold mb-2">Overview</h4>
+                  <p className="text-sm leading-relaxed opacity-90">
+                    {selectedProject.overview}
+                  </p>
+                </div>
+
+                {/* Technologies */}
+                <div>
+                  <h4 className="text-xl font-bold mb-2">Technologies Used</h4>
+                  <p className="text-sm opacity-90">
+                    {selectedProject.technologies}
+                  </p>
+                </div>
+
+                {/* Key Features */}
+                <div>
+                  <h4 className="text-xl font-bold mb-3">Key Features</h4>
+                  <ul className="space-y-2">
+                    {selectedProject.features.map((feature, idx) => (
+                      <li key={idx} className="text-sm flex items-start gap-2">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" />
+                        <span className="opacity-90">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Links */}
+                <div className="flex flex-wrap gap-3 pt-4 border-t-2 border-foreground">
+                  {selectedProject.links.client && (
+                    <a
+                      href={selectedProject.links.client}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 border-2 border-foreground rounded-lg hover:bg-foreground hover:text-background transition-colors"
+                    >
+                      <AiOutlineGithub className="text-xl" />
+                      Client Code
+                    </a>
+                  )}
+                  {selectedProject.links.server && (
+                    <a
+                      href={selectedProject.links.server}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 border-2 border-foreground rounded-lg hover:bg-foreground hover:text-background transition-colors"
+                    >
+                      <AiOutlineGithub className="text-xl" />
+                      Server Code
+                    </a>
+                  )}
+                  {selectedProject.links.github && (
+                    <a
+                      href={selectedProject.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 border-2 border-foreground rounded-lg hover:bg-foreground hover:text-background transition-colors"
+                    >
+                      <AiOutlineGithub className="text-xl" />
+                      GitHub Repository
+                    </a>
+                  )}
+                  <a
+                    href={selectedProject.links.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    <AiOutlineLink className="text-xl" />
+                    Visit Live Site
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
