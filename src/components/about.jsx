@@ -64,7 +64,7 @@ export function About() {
                 >
                   <span className="text-8xl font-bold">1+</span>
                   <p className="text-xl mt-4">
-                    Years of JavaScript Development & DSA
+                    Years of JavaScript Development
                   </p>
                 </motion.div>
               </div>
