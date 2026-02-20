@@ -14,7 +14,7 @@ export function Hero() {
   const handleDownloadResume = () => {
     // Create a temporary link element
     const link = document.createElement("a");
-    link.href = "/resume.pdf"; // Make sure to place your resume.pdf in the public folder
+    link.href = "/resume.pdf";
     link.download = "Aminur_Rahman_Resume.pdf";
     document.body.appendChild(link);
     link.click();
