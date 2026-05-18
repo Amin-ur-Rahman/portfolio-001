@@ -97,7 +97,7 @@ export function Hero() {
             {/* Profile Image */}
             <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-foreground relative z-10">
               <img
-                src="/meee.jpg"
+                src="/meee.png"
                 alt="Developer Portrait"
                 className="w-full h-full object-cover"
               />
