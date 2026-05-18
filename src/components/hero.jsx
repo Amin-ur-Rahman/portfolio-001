@@ -11,14 +11,8 @@ export function Hero() {
     }
   };
 
-  const handleDownloadResume = () => {
-    // Create a temporary link element
-    const link = document.createElement("a");
-    link.href = "/resume.pdf";
-    link.download = "Aminur_Rahman_Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleViewResume = () => {
+    window.open("/resume.pdf", "_blank");
   };
 
   return (
@@ -65,12 +59,11 @@ export function Hero() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={handleDownloadResume}
+            onClick={handleViewResume}
             className="my-5 flex items-center px-8 py-3 border-2 border-foreground rounded-full font-medium hover:bg-foreground hover:text-background transition-colors"
           >
-            {" "}
-            Download
-            <TbFileCv size={24}></TbFileCv>
+            View CV
+            <TbFileCv size={24} className="ml-2" />
           </motion.button>
         </motion.div>
 
